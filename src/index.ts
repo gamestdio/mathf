@@ -15,9 +15,6 @@ function toInt(value: number) {
 * Compares two floating point values if they are similar
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.Approximately.html
-* @param f1
-* @param f2
-* @returns {boolean}
 */
 export function approximately(f1: number, f2: number) {
   return Math.abs(f1 - f2) < Number.EPSILON;
@@ -27,10 +24,6 @@ export function approximately(f1: number, f2: number) {
 * Clamps a value between a minimum float and maximum float value
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.Clamp.html
-* @param value
-* @param min
-* @param max
-* @returns {number}
 */
 export function clamp(value: number, min: number, max: number) {
   return value < min ? min : value > max ? max : value;
@@ -40,8 +33,6 @@ export function clamp(value: number, min: number, max: number) {
 * Clamps value between 0 and 1 and returns value
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.Clamp01.html
-* @param value
-* @returns {number}
 */
 export function clamp01(value: number) {
   return value < 0 ? 0 : value > 1 ? 1 : value;
@@ -51,8 +42,6 @@ export function clamp01(value: number) {
 * Returns the closest power of two value
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.ClosestPowerOfTwo.html
-* @param value
-* @returns {number}
 */
 export function closestPowerOfTwo(value: number) {
   let nextValue = nextPowerOfTwo(value);
@@ -70,8 +59,6 @@ export function closestPowerOfTwo(value: number) {
 * Returns the closest power of two long value (useful for more then 32 bit numbers)
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.ClosestPowerOfTwo.html
-* @param value
-* @returns {number}
 */
 export function closestPowerOfTwoLong(value: number) {
   value = toInt(value);
@@ -94,9 +81,6 @@ export function closestPowerOfTwoLong(value: number) {
 * Calculates the shortest difference between two given angles given in degrees
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.DeltaAngle.html
-* @param current
-* @param target
-* @returns {number}
 */
 export function deltaAngle(current: number, target: number) {
   if (Math.abs(current) > FULL_ANGLE) {
@@ -114,8 +98,6 @@ export function deltaAngle(current: number, target: number) {
 * Converts the given value from gamma (sRGB) to linear color space
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.GammaToLinearSpace.html
-* @param value
-* @returns {number}
 */
 export function gammaToLinearSpace(value: number) {
   return Math.pow(value, GAMMA_TO_LINEAR);
@@ -125,10 +107,6 @@ export function gammaToLinearSpace(value: number) {
 * Calculates the linear parameter t that produces the interpolant value within the range [a, b]
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.InverseLerp.html
-* @param a
-* @param b
-* @param value
-* @returns {number}
 */
 export function inverseLerp(a: number, b: number, value: number) {
   return (clamp(value, Math.min(a, b), Math.max(a, b)) - a) / (b - a);
@@ -138,9 +116,6 @@ export function inverseLerp(a: number, b: number, value: number) {
 * Returns true if the value is power of two
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.IsPowerOfTwo.html
-* @link http://stackoverflow.com/a/108360
-* @param value
-* @returns {boolean}
 */
 export function isPowerOfTwo(value: number) {
   value = toInt(value);
@@ -152,10 +127,6 @@ export function isPowerOfTwo(value: number) {
 * Linearly interpolates between a and b by t
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.Lerp.html
-* @param a
-* @param b
-* @param t
-* @returns {number}
 */
 export function lerp(a: number, b: number, t: number) {
   return (b - a) * clamp01(t) + a;
@@ -165,10 +136,6 @@ export function lerp(a: number, b: number, t: number) {
 * Same as Lerp but makes sure the values interpolate correctly when they wrap around 360 degrees
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.LerpAngle.html
-* @param a
-* @param b
-* @param t
-* @returns {number}
 */
 export function lerpAngle(a: number, b: number, t: number) {
   while (a > b + STRAIGHT_ANGLE) {
@@ -186,10 +153,6 @@ export function lerpAngle(a: number, b: number, t: number) {
 * Linearly interpolates between a and b by t
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.LerpUnclamped.html
-* @param a
-* @param b
-* @param t
-* @returns {number}
 */
 export function lerpUnclamped(a: number, b: number, t: number) {
   if (t < 0 || t > 1) {
@@ -203,8 +166,6 @@ export function lerpUnclamped(a: number, b: number, t: number) {
 * Converts the given value from linear to gamma (sRGB) color space
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.LinearToGammaSpace.html
-* @param value
-* @returns {number}
 */
 export function linearToGammaSpace(value: number) {
   return Math.pow(value, LINEAR_TO_GAMMA);
@@ -214,10 +175,6 @@ export function linearToGammaSpace(value: number) {
 * Moves a value current towards target
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.MoveTowards.html
-* @param current
-* @param target
-* @param maxDelta
-* @returns {number}
 */
 export function moveTowards(current: number, target: number, maxDelta: number) {
   if (maxDelta > 0) {
@@ -238,10 +195,6 @@ export function moveTowards(current: number, target: number, maxDelta: number) {
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.MoveTowardsAngle.html
 * @deprecated
-* @param current
-* @param target
-* @param maxDelta
-* @returns {number}
 */
 function moveTowardsAngle(current: number, target: number, maxDelta: number) {}
 
@@ -249,8 +202,6 @@ function moveTowardsAngle(current: number, target: number, maxDelta: number) {}
 * Returns the next power of two value
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.NextPowerOfTwo.html
-* @param value
-* @returns {number}
 */
 export function nextPowerOfTwo(value: number): number {
   value = toInt(value);
@@ -272,9 +223,6 @@ export function nextPowerOfTwo(value: number): number {
 * PingPongs the value t, so that it is never larger than length and never smaller than 0
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.PingPong.html
-* @param t
-* @param length
-* @returns {number}
 */
 export function pingPong(t: number, length: number) {
   if (t < 0) t = -t;
@@ -291,9 +239,6 @@ export function pingPong(t: number, length: number) {
 * Loops the value t, so that it is never larger than length and never smaller than 0
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.Repeat.html
-* @param t
-* @param length
-* @returns {number}
 */
 export function repeat(t: number, length: number) {
   if (t > 0) return t % length;
@@ -305,8 +250,6 @@ export function repeat(t: number, length: number) {
 * Returns f rounded to the nearest integer
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.Round.html
-* @param f
-* @returns {number}
 */
 export function round(f: number) {
   let ceilVal = f + IS_INTEGER;
@@ -322,8 +265,6 @@ export function round(f: number) {
 * Returns the sign of f
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.Sign.html
-* @param f
-* @returns {number}
 */
 export function sign(f: number) {
   return f >= 0 ? 1 : -1;
@@ -335,13 +276,6 @@ export function sign(f: number) {
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.SmoothDamp.html
 * @deprecated
-* @param current
-* @param target
-* @param currentVelocity
-* @param smoothTime
-* @param maxSpeed
-* @param deltaTime
-* @returns {number}
 */
 function smoothDamp(
   current: number,
@@ -357,14 +291,6 @@ function smoothDamp(
 * Gradually changes an angle given in degrees towards a desired goal angle over time
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.SmoothDampAngle.html
-* @deprecated
-* @param current
-* @param target
-* @param currentVelocity
-* @param smoothTime
-* @param maxSpeed
-* @param deltaTime
-* @returns {number}
 */
 function smoothDampAngle(
   current: number,
@@ -381,9 +307,5 @@ function smoothDampAngle(
 *
 * @see http://docs.unity3d.com/ScriptReference/Mathf.SmoothStep.html
 * @deprecated
-* @param a
-* @param b
-* @param t
-* @returns {number}
 */
 function smoothStep(a: number, b: number, t: number) {}
