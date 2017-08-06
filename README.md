@@ -1,5 +1,7 @@
 # @gamestdio/mathf
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gamestdio/mathf.svg)](https://greenkeeper.io/)
+
 A collection of common math functions for JavaScript/TypeScript.
 
 ## Installation
