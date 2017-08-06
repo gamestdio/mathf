@@ -343,7 +343,7 @@ export function sign(f: number) {
 * @param deltaTime
 * @returns {number}
 */
-export function smoothDamp(
+function smoothDamp(
   current: number,
   target: number,
   currentVelocity: number,
@@ -366,7 +366,7 @@ export function smoothDamp(
 * @param deltaTime
 * @returns {number}
 */
-export function smoothDampAngle(
+function smoothDampAngle(
   current: number,
   target: number,
   currentVelocity: number,
@@ -386,4 +386,4 @@ export function smoothDampAngle(
 * @param t
 * @returns {number}
 */
-export function smoothStep(a: number, b: number, t: number) {}
+function smoothStep(a: number, b: number, t: number) {}

@@ -1,6 +1,6 @@
 {
   "name": "@gamestdio/mathf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of common math functions.",
   "main": "lib/index.js",
   "repository": {
