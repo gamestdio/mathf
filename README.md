@@ -11,10 +11,10 @@ npm install @gamestdio/mathf
 ## Usage
 
 ```typescript
-import { lerpAngle, rad2Deg } from "@gamestdio/mathf";
+import { lerpAngle, rad2Deg, deg2Rad } from "@gamestdio/mathf";
 
 let targetAngle = Math.PI * rad2Deg;
-sprite.rotation = lerpAngle(sprite.rotation, targetAngle, 0.1);
+sprite.rotation = lerpAngle(sprite.rotation * rad2Deg, targetAngle, 0.1) * deg2Rad;
 ```
 
 ## References
